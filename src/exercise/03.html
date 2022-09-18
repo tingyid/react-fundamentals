@@ -5,28 +5,27 @@
   <div id="root"></div>
   <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
-
-  <!-- 🐨 add Babel to the page.
-       💰 Here is the script tag that'll do the job:
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
-  -->
-
-  <script type="module">
-    // 🐨 on the script tag above, change `type="module"`
-    // to `type="text/babel"` so babel will compile this code for the browser to run.
-
-    // 🐨 re-implement this using JSX!
-    const element = React.createElement('div', {
-      className: 'container',
-      children: 'Hello World',
-    })
-
-    // 💰 there are a few subtle differences between JSX and HTML. One such
-    // difference is how you apply a class to an element in JSX is by using
-    // `className` rather than `class`!
+ 
+  <script type="text/babel">
+    // {} = interpolation from jsx (html-like sugar) to javascript
+    // you won't be able to statement (if-else, etc) within the {} but you can do that outside in the javascript
+    // or you can use turner, e.g. children === 'Hello World!'? 'hey you!' : 'uh oh'
+    const className = 'container'
+    const children = 'Hello World??'
+    // spread props. order matter! and you can overwrite props in the attributes too. 
+    const props = {
+      className, 
+      children: (children === 'Hello World!'? 'hey you!' : 'uh oh...').toUpperCase()
+    }
+    
+    const element = (
+      <div id='myElement' className='default' {...props} />
+    )
+    
     // 📜 You can learn the differences between JSX and HTML syntax from the React docs here:
     // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
 
-    ReactDOM.createRoot(document.getElementById('root')).render(element)
+    ReactDOM.render(element, document.getElementById('root'))
   </script>
 </body>
