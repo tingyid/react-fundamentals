@@ -25,7 +25,7 @@ function Box({size, style, ...otherProps}){
 const smallBox = (
   <Box
     size="small"
-    style={{backgroundColor: 'blue'}}
+    style={{backgroundColor: 'lightblue'}}
   >
     small lightblue box
   </Box>
